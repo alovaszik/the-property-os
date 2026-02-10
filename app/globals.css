@@ -1,9 +1,4 @@
 @import "tailwindcss";
-@import "tailwindcss/theme" layer(theme);
-
-@plugin "tailwindcss-animate";
-
-@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: hsl(220 20% 97%);

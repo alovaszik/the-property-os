@@ -1,0 +1,16 @@
+{
+  "name": "The Property OS",
+  "short_name": "PropertyOS",
+  "description": "The operating system for landlords and tenants",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f6f8",
+  "theme_color": "#2c5ae9",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -57,80 +57,82 @@ const plans = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="relative px-5 py-20 lg:px-12 lg:py-28">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-3">
+    <section id="pricing" className="relative px-5 py-20 lg:px-10 lg:py-24">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-12">
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-2">
             Pricing
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight text-balance">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight text-balance font-serif">
             Simple, transparent pricing
           </h2>
-          <p className="mt-4 text-muted-foreground text-lg max-w-lg mx-auto leading-relaxed">
+          <p className="mt-3 text-muted-foreground text-sm max-w-md mx-auto leading-relaxed">
             Start for free, upgrade when you need more. No hidden fees, cancel
             anytime.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative flex flex-col p-6 lg:p-8 rounded-2xl border transition-all duration-300 ${
+              className={`relative flex flex-col p-5 lg:p-6 rounded-lg border transition-colors ${
                 plan.highlighted
-                  ? "bg-card border-primary/40 shadow-[0_0_40px_rgba(67,97,238,0.12)]"
+                  ? "bg-card border-primary/40"
                   : "bg-card border-border hover:border-primary/20"
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-primary text-primary-foreground text-2xs font-semibold rounded-md">
                   Most Popular
                 </div>
               )}
 
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold text-foreground">
+              <div className="mb-5">
+                <h3 className="text-base font-semibold text-foreground font-serif">
                   {plan.name}
                 </h3>
-                <p className="text-sm text-muted-foreground mt-1">
+                <p className="text-xs text-muted-foreground mt-1">
                   {plan.description}
                 </p>
               </div>
 
-              <div className="flex items-baseline gap-1 mb-6">
-                <span className="text-4xl font-bold text-foreground tracking-tight">
+              <div className="flex items-baseline gap-0.5 mb-5">
+                <span className="text-3xl font-bold text-foreground tracking-tight font-serif">
                   {"$"}{plan.price}
                 </span>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-xs text-muted-foreground">
                   {plan.period}
                 </span>
               </div>
 
-              <ul className="flex flex-col gap-3 mb-8 flex-1">
+              <ul className="flex flex-col gap-2 mb-6 flex-1">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2.5">
+                  <li key={feature} className="flex items-start gap-2">
                     <Check
-                      className={`w-4 h-4 mt-0.5 shrink-0 ${
+                      className={`w-3.5 h-3.5 mt-0.5 shrink-0 ${
                         plan.highlighted
                           ? "text-primary"
                           : "text-muted-foreground"
                       }`}
                     />
-                    <span className="text-sm text-foreground">{feature}</span>
+                    <span className="text-xs text-foreground leading-relaxed">
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
 
               <a
                 href={plan.href}
-                className={`inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium rounded-full transition-all active:scale-[0.98] min-h-[48px] no-underline ${
+                className={`inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm font-medium rounded-md transition-all active:scale-[0.98] min-h-[40px] no-underline ${
                   plan.highlighted
-                    ? "bg-primary text-primary-foreground hover:opacity-90 shadow-[0_0_20px_rgba(67,97,238,0.2)]"
-                    : "bg-secondary text-foreground hover:bg-accent"
+                    ? "bg-primary text-primary-foreground hover:opacity-90"
+                    : "bg-secondary text-secondary-foreground hover:bg-accent"
                 }`}
               >
                 {plan.cta}
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
           ))}

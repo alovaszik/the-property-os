@@ -35,9 +35,9 @@ export default function LandlordDashboard() {
   };
 
   return (
-    <div className="px-4 py-6 lg:px-8 lg:py-8 max-w-7xl mx-auto">
+    <div className="px-4 py-6 lg:px-6 lg:py-6 max-w-7xl mx-auto">
       <div className="flex flex-col gap-0.5 mb-6">
-        <h1 className="text-xl font-semibold text-foreground tracking-tight font-display">
+        <h1 className="text-xl font-semibold text-foreground tracking-tight font-serif">
           Dashboard
         </h1>
         <p className="text-sm text-muted-foreground">
@@ -90,7 +90,7 @@ export default function LandlordDashboard() {
 
       {props.length > 0 ? (
         <div>
-          <h2 className="text-sm font-semibold text-foreground mb-3 font-display">
+          <h2 className="text-sm font-semibold text-foreground mb-3 font-serif">
             Your Properties
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">

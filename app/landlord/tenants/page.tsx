@@ -139,16 +139,16 @@ export default function TenantsPage() {
   };
 
   return (
-    <div className="px-4 py-6 lg:px-8 lg:py-8 max-w-7xl mx-auto">
+    <div className="px-4 py-6 lg:px-6 lg:py-6 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-xl font-semibold font-display text-foreground tracking-tight">Tenants</h1>
+          <h1 className="text-xl font-semibold font-serif text-foreground tracking-tight">Tenants</h1>
           <p className="text-sm text-muted-foreground mt-1">{tenants.length} {tenants.length === 1 ? "tenant" : "tenants"} across all properties</p>
         </div>
         <button
           type="button"
           onClick={() => setShowInvite(true)}
-          className="flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-medium min-h-[44px] hover:opacity-90 transition-opacity"
+          className="flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md text-sm font-medium min-h-[36px] hover:opacity-90 transition-opacity"
         >
           <Plus className="w-4 h-4" />
           <span className="hidden sm:inline">Invite Tenant</span>
@@ -157,7 +157,7 @@ export default function TenantsPage() {
 
       {/* Search */}
       <div className="flex items-center gap-3 mb-6">
-        <div className="flex-1 flex items-center gap-2 px-4 py-2.5 bg-card border border-border rounded-xl min-h-[44px]">
+        <div className="flex-1 flex items-center gap-2 px-3 py-2 bg-card border border-border rounded-lg min-h-[36px]">
           <Search className="w-4 h-4 text-muted-foreground shrink-0" />
           <input
             type="text"
@@ -169,7 +169,7 @@ export default function TenantsPage() {
         </div>
         <button
           type="button"
-          className="flex items-center justify-center w-11 h-11 rounded-xl bg-card border border-border hover:bg-secondary transition-colors"
+          className="flex items-center justify-center w-9 h-9 rounded-lg bg-card border border-border hover:bg-secondary transition-colors"
           aria-label="Filter"
         >
           <Filter className="w-4 h-4 text-muted-foreground" />
@@ -179,7 +179,7 @@ export default function TenantsPage() {
       {/* Tenant list */}
       <div className="flex flex-col gap-3">
         {filtered.map((tenant) => (
-          <div key={tenant.id} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors">
+          <div key={tenant.id} className="flex items-center gap-4 p-4 rounded-lg bg-card border border-border hover:border-primary/30 transition-colors">
             <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center text-sm font-semibold text-primary shrink-0">
               {tenant.name.split(" ").map((n) => n[0]).join("")}
             </div>
@@ -231,7 +231,7 @@ export default function TenantsPage() {
           />
 
           {/* Modal */}
-          <div className="relative w-full max-w-lg bg-card border border-border rounded-xl shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-300 max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-lg bg-card border border-border rounded-lg shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-300 max-h-[90vh] overflow-y-auto">
             {/* Header */}
             <div className="flex items-center justify-between p-6 pb-0">
               <div className="flex items-center gap-3">
@@ -404,7 +404,7 @@ export default function TenantsPage() {
 
               {inviteStep === "success" && (
                 <div className="space-y-5">
-                  <div className="flex items-center gap-3 p-4 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
+                  <div className="flex items-center gap-3 p-4 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
                     <Check className="w-5 h-5 text-green-600 dark:text-green-400 shrink-0" />
                     <div>
                       <p className="text-sm font-medium text-green-800 dark:text-green-300">Invitation created for {inviteForm.tenant_name}</p>

@@ -288,7 +288,7 @@ export default function LandlordWalletPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-semibold font-display text-foreground tracking-tight">Wallet</h1>
+            <h1 className="text-xl font-semibold font-serif text-foreground tracking-tight">Wallet</h1>
             <p className="text-sm text-muted-foreground mt-1">Manage your funds, payouts, and security deposits</p>
           </div>
           <Button variant="outline" size="sm" onClick={fetchAll} className="gap-2 bg-transparent">
@@ -303,7 +303,7 @@ export default function LandlordWalletPage() {
           <Card className="p-5 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -translate-y-8 translate-x-8" />
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                 <Wallet className="w-5 h-5 text-primary" />
               </div>
               <span className="text-sm font-medium text-muted-foreground">Available Balance</span>
@@ -400,7 +400,7 @@ export default function LandlordWalletPage() {
           {/* Security Deposits */}
           <Card className="p-5">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center">
                 <Lock className="w-5 h-5 text-amber-500" />
               </div>
               <span className="text-sm font-medium text-muted-foreground">Security Deposits</span>
@@ -416,7 +416,7 @@ export default function LandlordWalletPage() {
           {/* Pending Requests */}
           <Card className="p-5">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center">
                 <HandCoins className="w-5 h-5 text-orange-500" />
               </div>
               <span className="text-sm font-medium text-muted-foreground">Pending Requests</span>

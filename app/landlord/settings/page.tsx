@@ -22,9 +22,9 @@ const settingsGroups = [
 
 export default function SettingsPage() {
   return (
-    <div className="px-4 py-6 lg:px-8 lg:py-8 max-w-3xl mx-auto">
+    <div className="px-4 py-6 lg:px-6 lg:py-6 max-w-3xl mx-auto">
       <div className="mb-6">
-        <h1 className="text-xl font-semibold font-display text-foreground tracking-tight">Settings</h1>
+        <h1 className="text-xl font-semibold font-serif text-foreground tracking-tight">Settings</h1>
         <p className="text-sm text-muted-foreground mt-1">Manage your account preferences</p>
       </div>
 
@@ -32,10 +32,10 @@ export default function SettingsPage() {
         {settingsGroups.map((group) => (
           <div key={group.title}>
             <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-1">{group.title}</h2>
-            <div className="flex flex-col rounded-xl bg-card border border-border overflow-hidden">
+            <div className="flex flex-col rounded-lg bg-card border border-border overflow-hidden">
               {group.items.map((item, idx) => (
                 <button key={item.label} className={cn( "flex items-center gap-4 p-4 text-left hover:bg-secondary/50 transition-colors min-h-[56px]", idx < group.items.length - 1 && "border-b border-border" )}>
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                     <item.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">

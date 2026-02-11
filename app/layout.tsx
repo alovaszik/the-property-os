@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, DM_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
@@ -9,13 +9,19 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  weight: ["400", "500", "600", "700"],
+});
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5f6f8" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f1117" },
+    { media: "(prefers-color-scheme: light)", color: "#f1f2f6" },
+    { media: "(prefers-color-scheme: dark)", color: "#0c0f1a" },
   ],
 };
 
@@ -32,8 +38,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-background overflow-x-hidden" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased bg-background`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className="bg-background overflow-x-hidden"
+      suppressHydrationWarning
+    >
+      <body
+        className={`${inter.variable} ${dmSans.variable} font-sans antialiased bg-background`}
+        suppressHydrationWarning
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

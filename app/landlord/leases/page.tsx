@@ -32,13 +32,13 @@ export default function LeasesPage() {
   );
 
   return (
-    <div className="px-4 py-6 lg:px-8 lg:py-8 max-w-7xl mx-auto">
+    <div className="px-4 py-6 lg:px-6 lg:py-6 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-xl font-semibold font-display text-foreground tracking-tight">Leases</h1>
+          <h1 className="text-xl font-semibold font-serif text-foreground tracking-tight">Leases</h1>
           <p className="text-sm text-muted-foreground mt-1">Manage lease agreements</p>
         </div>
-        <button type="button" className="flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-medium min-h-[44px] hover:opacity-90 transition-opacity">
+        <button type="button" className="flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md text-sm font-medium min-h-[36px] hover:opacity-90 transition-opacity">
           <Plus className="w-4 h-4" />
           <span className="hidden sm:inline">New Lease</span>
         </button>

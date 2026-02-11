@@ -22,6 +22,7 @@ import {
   BarChart3,
   LogOut,
   Wallet,
+  HelpCircle,
 } from "@/components/icons";
 import { createClient } from "@/lib/supabase/client";
 
@@ -41,6 +42,7 @@ const landlordNav: NavItem[] = [
   { label: "Wallet", href: "/landlord/wallet", icon: Wallet },
   { label: "Activity", href: "/landlord/activity", icon: MessageSquare, badge: 3 },
   { label: "Tickets", href: "/landlord/tickets", icon: Bug },
+  { label: "Help", href: "/landlord/help", icon: HelpCircle },
   { label: "Settings", href: "/landlord/settings", icon: Settings },
 ];
 
@@ -53,6 +55,7 @@ const tenantNav: NavItem[] = [
   { label: "Statements", href: "/tenant/statements", icon: BarChart3 },
   { label: "Activity", href: "/tenant/activity", icon: MessageSquare, badge: 2 },
   { label: "Maintenance", href: "/tenant/maintenance", icon: Wrench },
+  { label: "Help", href: "/tenant/help", icon: HelpCircle },
   { label: "Settings", href: "/tenant/settings", icon: Settings },
 ];
 

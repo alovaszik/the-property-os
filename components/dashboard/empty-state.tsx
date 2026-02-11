@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import type { LucideIcon } from "lucide-react";
 
@@ -12,19 +12,28 @@ interface EmptyStateProps {
   };
 }
 
-export function EmptyState({ icon: Icon, title, description, action }: EmptyStateProps) {
+export function EmptyState({
+  icon: Icon,
+  title,
+  description,
+  action,
+}: EmptyStateProps) {
   return (
-    <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
-      <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mb-4">
-        <Icon className="w-6 h-6 text-muted-foreground" />
+    <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
+      <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center mb-4">
+        <Icon className="w-5 h-5 text-muted-foreground" />
       </div>
-      <h3 className="text-base font-semibold text-foreground mb-1 text-balance">{title}</h3>
-      <p className="text-sm text-muted-foreground max-w-sm text-pretty">{description}</p>
+      <h3 className="text-sm font-semibold text-foreground mb-1.5 text-balance font-serif">
+        {title}
+      </h3>
+      <p className="text-[13px] text-muted-foreground max-w-xs text-pretty leading-relaxed">
+        {description}
+      </p>
       {action && (
         <button
           type="button"
           onClick={action.onClick}
-          className="mt-4 px-5 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-medium min-h-[44px] hover:opacity-90 transition-opacity"
+          className="mt-5 px-5 py-2.5 bg-foreground text-background rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
         >
           {action.label}
         </button>

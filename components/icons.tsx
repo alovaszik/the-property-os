@@ -81,4 +81,12 @@ export {
   CircleX,
   Info,
   RefreshCw,
+  HelpCircle,
+  LifeBuoy,
+  MessageCircle,
+  Sparkles,
+  UserPlus,
+  Rocket,
+  Coins,
+  ChevronDown,
 } from "lucide-react";

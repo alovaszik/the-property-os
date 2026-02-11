@@ -31,10 +31,10 @@ export default function PaymentsPage() {
   const fmtDate = (d: string) => new Date(d).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
   return (
-    <div className="px-4 py-6 lg:px-8 lg:py-8 max-w-7xl mx-auto">
+    <div className="px-4 py-6 lg:px-6 lg:py-6 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">Payments</h1>
+          <h1 className="text-xl font-semibold font-serif text-foreground tracking-tight">Payments</h1>
           <p className="text-sm text-muted-foreground mt-1">Track rent collection and payments</p>
         </div>
       </div>
@@ -47,11 +47,11 @@ export default function PaymentsPage() {
       </div>
 
       <div className="flex items-center gap-3 mb-6">
-        <div className="flex-1 flex items-center gap-2 px-4 py-2.5 bg-card border border-border rounded-xl min-h-[44px]">
+        <div className="flex-1 flex items-center gap-2 px-4 py-2.5 bg-card border border-border rounded-lg min-h-[44px]">
           <Search className="w-4 h-4 text-muted-foreground shrink-0" />
           <input type="text" placeholder="Search payments..." value={search} onChange={(e) => setSearch(e.target.value)} className="flex-1 text-sm bg-transparent outline-none text-foreground placeholder:text-muted-foreground" />
         </div>
-        <button type="button" className="flex items-center justify-center w-11 h-11 rounded-xl bg-card border border-border hover:bg-secondary transition-colors" aria-label="Filter">
+        <button type="button" className="flex items-center justify-center w-11 h-11 rounded-lg bg-card border border-border hover:bg-secondary transition-colors" aria-label="Filter">
           <Filter className="w-4 h-4 text-muted-foreground" />
         </button>
       </div>
@@ -62,8 +62,8 @@ export default function PaymentsPage() {
             const tenantName = payment.tenancy?.tenant?.full_name || "Unknown";
             const unit = payment.tenancy?.unit || "";
             return (
-              <div key={payment.id} className="flex items-center gap-4 p-4 rounded-2xl bg-card border border-border">
-                <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center shrink-0",
+              <div key={payment.id} className="flex items-center gap-4 p-4 rounded-lg bg-card border border-border">
+                <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center shrink-0",
                   payment.status === "completed" && "bg-green-100 dark:bg-green-900/30",
                   payment.status === "pending" && "bg-amber-100 dark:bg-amber-900/30",
                   payment.status === "overdue" && "bg-red-100 dark:bg-red-900/30",

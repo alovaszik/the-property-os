@@ -8,30 +8,27 @@ export default function AuthLayout({
 }) {
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* Header */}
-      <header className="px-5 py-4 lg:px-12 lg:py-5">
-        <Link href="/" className="flex items-center gap-3">
+      <header className="h-14 px-5 lg:px-12 flex items-center">
+        <Link href="/" className="flex items-center gap-2.5">
           <img
             src="/logo.jpeg"
             alt="RentDuo logo"
-            width={36}
-            height={36}
-            className="rounded-full"
+            width={28}
+            height={28}
+            className="rounded-lg"
           />
-          <span className="text-lg font-semibold text-foreground tracking-tight">
+          <span className="text-sm font-bold text-foreground font-serif">
             RentDuo
           </span>
         </Link>
       </header>
 
-      {/* Main content */}
       <main className="flex-1 flex items-center justify-center px-5 py-8">
         {children}
       </main>
 
-      {/* Footer */}
-      <footer className="px-5 py-6 text-center">
-        <p className="text-sm text-muted-foreground">
+      <footer className="h-14 flex items-center justify-center">
+        <p className="text-xs text-muted-foreground">
           2026 RentDuo. All rights reserved.
         </p>
       </footer>

@@ -1,44 +1,44 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronRight } from "@/components/icons";
+import { ChevronDown, LifeBuoy } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    question: "Is RentDuo free to use?",
+    question: "Is RentDuo really free?",
     answer:
-      "Yes! Our Starter plan is completely free and lets you manage up to 3 properties. You can upgrade to Professional or Enterprise at any time for more features and unlimited properties.",
+      "Yes. There is no monthly subscription. You get unlimited properties, tenants, and all features from day one. We only charge a small percentage fee on rent payments collected through the platform. If you don't collect rent through us, you pay nothing.",
   },
   {
     question: "Which countries does RentDuo support?",
     answer:
-      "RentDuo supports all 30+ European Union and EEA countries, including Germany, France, Spain, Italy, Netherlands, Austria, Hungary, and many more. Each country has localized currency, language, and regulation support.",
+      "RentDuo supports all 30+ EU and EEA countries including Germany, France, Spain, Italy, Netherlands, Austria, Hungary, and more. Each country has localized currency, language, and legal regulation support.",
   },
   {
-    question: "How does the unified chat work?",
+    question: "How do payments and payouts work?",
     answer:
-      "Every interaction between landlord and tenant appears in a single timeline — messages, payment receipts, maintenance tickets, and notifications. Think of it like a modern banking app where every transaction and conversation is in one place.",
+      "Tenants deposit funds into their RentDuo wallet and pay rent from there. Landlords receive payments instantly in their wallet balance and can withdraw to their linked bank account at any time, or enable automatic payouts.",
   },
   {
-    question: "Can I change my name or country after registering?",
+    question: "What about security deposits?",
     answer:
-      "Your legal name and country are set during registration for verification purposes. To change these, you can submit a support ticket and our team will verify and process the change within 24-48 hours.",
+      "Security deposits are locked in the platform and held securely until the tenancy contract ends. Neither party can touch the funds during the lease. Upon contract end, the landlord can release the full deposit or deduct for damages with a documented reason.",
   },
   {
-    question: "What are RentDuo Points?",
+    question: "Can tenants request money for repairs?",
     answer:
-      "RentDuo Points are our loyalty rewards system. Both landlords and tenants earn points for positive actions — like on-time payments, completing profile setup, and maintaining good standing. Points can unlock premium features and badges on your profile.",
+      "Yes. Tenants can submit maintenance requests with a cost estimate directly from their wallet. The landlord reviews and can approve or reject the request. Approved amounts are transferred from the landlord's balance to the tenant.",
   },
   {
-    question: "Is my data secure and GDPR compliant?",
+    question: "Is my data GDPR compliant?",
     answer:
-      "Absolutely. RentDuo is fully GDPR compliant and uses end-to-end encryption for sensitive data. All data is stored in EU-based servers, and you can request data export or deletion at any time through your settings.",
+      "Absolutely. RentDuo is fully GDPR compliant with end-to-end encryption for sensitive data. All data is stored on EU servers. You can export or delete your data at any time from Settings.",
   },
   {
-    question: "How do automatic payments work?",
+    question: "How do I get help?",
     answer:
-      "Tenants can set up recurring payments that automatically process on their rent due date. Landlords receive instant notifications when payments are made, and everything is logged in the activity feed for complete transparency.",
+      "Every dashboard has a built-in Help Center with searchable FAQ, quick guides, and a direct support contact. You can access it from the sidebar at any time.",
   },
 ];
 
@@ -58,25 +58,25 @@ function FAQItem({
       <button
         type="button"
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 py-5 text-left min-h-[52px]"
+        className="w-full flex items-center justify-between gap-4 py-4 text-left group"
       >
-        <span className="text-base font-medium text-foreground">
+        <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
           {question}
         </span>
-        <ChevronRight
+        <ChevronDown
           className={cn(
-            "w-5 h-5 text-muted-foreground shrink-0 transition-transform duration-200",
-            isOpen && "rotate-90"
+            "w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-200",
+            isOpen && "rotate-180 text-primary"
           )}
         />
       </button>
       <div
         className={cn(
           "overflow-hidden transition-all duration-300 ease-in-out",
-          isOpen ? "max-h-[500px] opacity-100 pb-5" : "max-h-0 opacity-0"
+          isOpen ? "max-h-[500px] opacity-100 pb-4" : "max-h-0 opacity-0"
         )}
       >
-        <p className="text-sm text-muted-foreground leading-relaxed pr-8">
+        <p className="text-[13px] text-muted-foreground leading-relaxed pr-8">
           {answer}
         </p>
       </div>
@@ -88,21 +88,21 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative px-5 py-20 lg:px-12 lg:py-28">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-14">
+    <section id="faq" className="relative px-5 py-20 lg:px-10 lg:py-28 bg-card">
+      <div className="max-w-2xl mx-auto">
+        <div className="text-center mb-12">
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-3">
             FAQ
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight text-balance">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-balance">
             Frequently asked questions
           </h2>
-          <p className="mt-4 text-muted-foreground text-lg max-w-lg mx-auto leading-relaxed">
+          <p className="mt-4 text-muted-foreground text-sm max-w-md mx-auto leading-relaxed">
             Everything you need to know about RentDuo.
           </p>
         </div>
 
-        <div className="bg-card border border-border rounded-2xl px-6 lg:px-8">
+        <div className="bg-background border border-border rounded-xl px-6 shadow-card">
           {faqs.map((faq, index) => (
             <FAQItem
               key={faq.question}
@@ -114,6 +114,19 @@ export function FAQ() {
               }
             />
           ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <p className="text-sm text-muted-foreground mb-3">
+            Still have questions?
+          </p>
+          <a
+            href="mailto:support@rentduo.com"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+          >
+            <LifeBuoy className="w-4 h-4" />
+            Contact our support team
+          </a>
         </div>
       </div>
     </section>

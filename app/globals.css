@@ -6,6 +6,9 @@
   .text-balance {
     text-wrap: balance;
   }
+  .text-pretty {
+    text-wrap: pretty;
+  }
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -17,82 +20,111 @@
 
 @layer base {
   :root {
-    --background: 220 20% 97%;
+    /* CRM SaaS — Warm Neutral + Teal accent */
+    --background: 40 7% 96%;
     --foreground: 220 20% 10%;
+
     --card: 0 0% 100%;
     --card-foreground: 220 20% 10%;
+
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 10%;
-    --primary: 225 73% 57%;
+
+    --primary: 172 66% 36%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 16% 93%;
-    --secondary-foreground: 220 20% 20%;
-    --muted: 220 16% 93%;
-    --muted-foreground: 220 10% 46%;
-    --accent: 220 16% 93%;
-    --accent-foreground: 220 20% 20%;
+
+    --secondary: 40 6% 91%;
+    --secondary-foreground: 220 14% 20%;
+
+    --muted: 40 6% 91%;
+    --muted-foreground: 220 6% 44%;
+
+    --accent: 40 6% 93%;
+    --accent-foreground: 220 14% 20%;
+
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --success: 142 72% 40%;
+
+    --success: 152 69% 31%;
     --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
+
+    --warning: 32 95% 44%;
     --warning-foreground: 0 0% 100%;
-    --border: 220 13% 90%;
-    --input: 220 13% 90%;
-    --ring: 225 73% 57%;
-    --chart-1: 225 73% 57%;
-    --chart-2: 142 72% 40%;
-    --chart-3: 38 92% 50%;
+
+    --border: 40 6% 89%;
+    --input: 40 6% 89%;
+    --ring: 172 66% 36%;
+
+    --chart-1: 172 66% 36%;
+    --chart-2: 152 69% 31%;
+    --chart-3: 32 95% 44%;
     --chart-4: 0 72% 51%;
-    --chart-5: 262 52% 47%;
-    --radius: 0.75rem;
+    --chart-5: 220 20% 50%;
+
+    --radius: 0.5rem;
+
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 20% 20%;
-    --sidebar-primary: 225 73% 57%;
+    --sidebar-foreground: 220 14% 20%;
+    --sidebar-primary: 172 66% 36%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 16% 95%;
-    --sidebar-accent-foreground: 220 20% 20%;
-    --sidebar-border: 220 13% 90%;
-    --sidebar-ring: 225 73% 57%;
+    --sidebar-accent: 40 7% 96%;
+    --sidebar-accent-foreground: 220 14% 20%;
+    --sidebar-border: 40 6% 89%;
+    --sidebar-ring: 172 66% 36%;
   }
+
   .dark {
-    --background: 222 22% 7%;
-    --foreground: 220 16% 93%;
-    --card: 222 20% 10%;
-    --card-foreground: 220 16% 93%;
-    --popover: 222 20% 10%;
-    --popover-foreground: 220 16% 93%;
-    --primary: 225 73% 57%;
+    /* CRM SaaS — Deep Slate + Teal accent */
+    --background: 220 16% 6%;
+    --foreground: 40 6% 93%;
+
+    --card: 220 14% 9%;
+    --card-foreground: 40 6% 93%;
+
+    --popover: 220 14% 9%;
+    --popover-foreground: 40 6% 93%;
+
+    --primary: 172 66% 42%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 222 18% 14%;
-    --secondary-foreground: 220 16% 90%;
-    --muted: 222 18% 14%;
-    --muted-foreground: 220 10% 55%;
-    --accent: 222 18% 14%;
-    --accent-foreground: 220 16% 90%;
-    --destructive: 0 72% 51%;
+
+    --secondary: 220 14% 13%;
+    --secondary-foreground: 40 6% 88%;
+
+    --muted: 220 14% 13%;
+    --muted-foreground: 220 6% 50%;
+
+    --accent: 220 14% 13%;
+    --accent-foreground: 40 6% 88%;
+
+    --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
-    --success: 142 72% 40%;
+
+    --success: 152 69% 38%;
     --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
+
+    --warning: 32 95% 50%;
     --warning-foreground: 0 0% 100%;
-    --border: 222 18% 16%;
-    --input: 222 18% 16%;
-    --ring: 225 73% 57%;
-    --chart-1: 225 73% 57%;
-    --chart-2: 142 72% 50%;
-    --chart-3: 38 92% 55%;
+
+    --border: 220 12% 14%;
+    --input: 220 12% 14%;
+    --ring: 172 66% 42%;
+
+    --chart-1: 172 66% 42%;
+    --chart-2: 152 69% 38%;
+    --chart-3: 32 95% 50%;
     --chart-4: 0 72% 55%;
-    --chart-5: 262 52% 57%;
-    --radius: 0.75rem;
-    --sidebar-background: 222 22% 7%;
-    --sidebar-foreground: 220 16% 90%;
-    --sidebar-primary: 225 73% 57%;
+    --chart-5: 220 20% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 16% 6%;
+    --sidebar-foreground: 40 6% 88%;
+    --sidebar-primary: 172 66% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 222 18% 14%;
-    --sidebar-accent-foreground: 220 16% 90%;
-    --sidebar-border: 222 18% 16%;
-    --sidebar-ring: 225 73% 57%;
+    --sidebar-accent: 220 14% 13%;
+    --sidebar-accent-foreground: 40 6% 88%;
+    --sidebar-border: 220 12% 14%;
+    --sidebar-ring: 172 66% 42%;
   }
 }
 
@@ -100,8 +132,13 @@
   * {
     @apply border-border;
   }
-  html, body {
+  html,
+  body {
     @apply bg-background text-foreground overflow-x-hidden;
     -webkit-overflow-scrolling: touch;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
   }
 }

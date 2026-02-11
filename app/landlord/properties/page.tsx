@@ -35,11 +35,11 @@ export default function PropertiesPage() {
   };
 
   return (
-    <div className="px-4 py-6 lg:px-8 lg:py-8 max-w-7xl mx-auto">
+    <div className="px-4 py-6 lg:px-6 lg:py-6 max-w-7xl mx-auto">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">Properties</h1>
+          <h1 className="text-xl font-semibold font-serif text-foreground tracking-tight">Properties</h1>
           <p className="text-sm text-muted-foreground mt-1">
             {props.length} {props.length === 1 ? "property" : "properties"} in your portfolio
           </p>
@@ -47,7 +47,7 @@ export default function PropertiesPage() {
         <button
           type="button"
           onClick={() => setShowAdd(true)}
-          className="flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-medium min-h-[44px] hover:opacity-90 transition-opacity"
+          className="flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-md text-sm font-medium min-h-[36px] hover:opacity-90 transition-opacity"
         >
           <Plus className="w-4 h-4" />
           <span className="hidden sm:inline">Add Property</span>
@@ -63,7 +63,7 @@ export default function PropertiesPage() {
             { label: "Vacant", value: stats.vacant, color: "text-red-600 dark:text-red-400" },
             { label: "Maintenance", value: stats.maintenance, color: "text-amber-600 dark:text-amber-400" },
           ].map((stat) => (
-            <div key={stat.label} className="flex flex-col gap-1 p-4 rounded-2xl bg-card border border-border">
+            <div key={stat.label} className="flex flex-col gap-1 p-3 rounded-lg bg-card border border-border">
               <span className="text-xs text-muted-foreground font-medium">{stat.label}</span>
               <span className={`text-xl font-bold ${stat.color}`}>{stat.value}</span>
             </div>
@@ -74,7 +74,7 @@ export default function PropertiesPage() {
       {/* Search + filter */}
       {props.length > 0 && (
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex-1 flex items-center gap-2 px-4 py-2.5 bg-card border border-border rounded-xl min-h-[44px]">
+          <div className="flex-1 flex items-center gap-2 px-3 py-2 bg-card border border-border rounded-lg min-h-[36px]">
             <Search className="w-4 h-4 text-muted-foreground shrink-0" />
             <input
               type="text"
@@ -87,7 +87,7 @@ export default function PropertiesPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="h-11 px-3 rounded-xl bg-card border border-border text-sm text-foreground min-w-[100px]"
+            className="h-9 px-3 rounded-lg bg-card border border-border text-sm text-foreground min-w-[100px]"
           >
             <option value="all">All</option>
             <option value="active">Active</option>

@@ -17,17 +17,17 @@ export function StatCard({
   icon: Icon,
 }: StatCardProps) {
   return (
-    <div className="flex flex-col gap-3 p-4 rounded-lg bg-card border border-border">
+    <div className="flex flex-col gap-3 p-4 lg:p-5 rounded-xl bg-card border border-border shadow-card">
       <div className="flex items-center justify-between">
-        <span className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
+        <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
           {label}
         </span>
-        <div className="w-8 h-8 rounded-md bg-primary/8 flex items-center justify-center">
-          <Icon className="w-3.5 h-3.5 text-primary" />
+        <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
+          <Icon className="w-4 h-4 text-primary" />
         </div>
       </div>
       <div className="flex items-baseline gap-2">
-        <span className="text-2xl font-bold text-foreground tracking-tight font-serif">
+        <span className="text-2xl font-bold text-foreground font-serif">
           {value}
         </span>
         {change && (

@@ -79,12 +79,12 @@ export function DashboardShell({
   return (
     <div className="min-h-screen bg-background">
       {/* Top bar */}
-      <header className="sticky top-0 z-40 h-14 flex items-center justify-between px-4 lg:px-6 bg-card border-b border-border">
+      <header className="sticky top-0 z-40 h-14 flex items-center justify-between px-4 lg:px-6 bg-card/80 backdrop-blur-xl border-b border-border">
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex lg:hidden items-center justify-center w-8 h-8 rounded-md hover:bg-muted transition-colors"
+            className="flex lg:hidden items-center justify-center w-8 h-8 rounded-lg hover:bg-muted transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -93,34 +93,34 @@ export function DashboardShell({
               <Menu className="w-4 h-4 text-foreground" />
             )}
           </button>
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2.5">
             <img
               src="/logo.jpeg"
               alt="RentDuo logo"
               width={28}
               height={28}
-              className="rounded-md"
+              className="rounded-lg"
             />
-            <span className="text-sm font-semibold text-foreground tracking-tight hidden sm:inline font-serif">
+            <span className="text-sm font-bold text-foreground hidden sm:inline font-serif">
               RentDuo
             </span>
           </Link>
-          <span className="text-2xs font-medium text-primary bg-primary/8 px-2 py-0.5 rounded-md capitalize hidden sm:inline">
+          <span className="text-2xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-md capitalize hidden sm:inline">
             {variant}
           </span>
         </div>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1.5">
           <button
             type="button"
-            className="relative flex items-center justify-center w-8 h-8 rounded-md hover:bg-muted transition-colors"
+            className="relative flex items-center justify-center w-8 h-8 rounded-lg hover:bg-muted transition-colors"
             aria-label="Notifications"
           >
             <Bell className="w-4 h-4 text-muted-foreground" />
-            <span className="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full border-2 border-card" />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full border-2 border-card" />
           </button>
           <ThemeToggle />
-          <div className="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center text-xs font-semibold text-primary ml-1">
+          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-xs font-bold text-primary ml-1">
             {variant === "landlord" ? "JD" : "AT"}
           </div>
         </div>
@@ -142,7 +142,7 @@ export function DashboardShell({
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "flex items-center gap-2.5 px-2.5 py-2 rounded-md text-[13px] font-medium transition-colors",
+                    "flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium transition-colors",
                     isActive
                       ? "bg-primary/10 text-primary"
                       : "text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -151,7 +151,7 @@ export function DashboardShell({
                   <item.icon className="w-4 h-4 shrink-0" />
                   {item.label}
                   {item.badge && (
-                    <span className="ml-auto text-2xs bg-primary text-primary-foreground w-4 h-4 rounded flex items-center justify-center font-semibold">
+                    <span className="ml-auto text-2xs bg-primary text-primary-foreground w-[18px] h-[18px] rounded-md flex items-center justify-center font-bold">
                       {item.badge}
                     </span>
                   )}
@@ -163,7 +163,7 @@ export function DashboardShell({
           <div className="mt-auto pt-3 border-t border-border space-y-0.5">
             <Link
               href="/"
-              className="flex items-center gap-2.5 px-2.5 py-2 rounded-md text-[13px] font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
             >
               <Home className="w-4 h-4" />
               Back to Home
@@ -171,7 +171,7 @@ export function DashboardShell({
             <button
               type="button"
               onClick={handleLogout}
-              className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-md text-[13px] font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+              className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
             >
               <LogOut className="w-4 h-4" />
               Sign Out
@@ -190,7 +190,7 @@ export function DashboardShell({
               tabIndex={0}
               aria-label="Close menu"
             />
-            <aside className="absolute left-0 top-0 bottom-0 w-64 bg-card border-r border-border p-3 pt-16 overflow-y-auto animate-fade-in">
+            <aside className="absolute left-0 top-0 bottom-0 w-64 bg-card border-r border-border p-3 pt-16 overflow-y-auto animate-slide-in">
               <nav className="flex flex-col gap-0.5">
                 {navItems.map((item) => {
                   const isActive = pathname === item.href;
@@ -200,7 +200,7 @@ export function DashboardShell({
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
                       className={cn(
-                        "flex items-center gap-2.5 px-2.5 py-2.5 rounded-md text-[13px] font-medium transition-colors",
+                        "flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[13px] font-medium transition-colors",
                         isActive
                           ? "bg-primary/10 text-primary"
                           : "text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -209,7 +209,7 @@ export function DashboardShell({
                       <item.icon className="w-4 h-4" />
                       {item.label}
                       {item.badge && (
-                        <span className="ml-auto text-2xs bg-primary text-primary-foreground w-4 h-4 rounded flex items-center justify-center font-semibold">
+                        <span className="ml-auto text-2xs bg-primary text-primary-foreground w-[18px] h-[18px] rounded-md flex items-center justify-center font-bold">
                           {item.badge}
                         </span>
                       )}
@@ -221,7 +221,7 @@ export function DashboardShell({
                 <Link
                   href="/"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2.5 px-2.5 py-2.5 rounded-md text-[13px] font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                  className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[13px] font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
                 >
                   <Home className="w-4 h-4" />
                   Back to Home
@@ -232,7 +232,7 @@ export function DashboardShell({
                     setMobileMenuOpen(false);
                     handleLogout();
                   }}
-                  className="w-full flex items-center gap-2.5 px-2.5 py-2.5 rounded-md text-[13px] font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                  className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[13px] font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
                 >
                   <LogOut className="w-4 h-4" />
                   Sign Out
@@ -249,7 +249,7 @@ export function DashboardShell({
       </div>
 
       {/* Mobile bottom nav */}
-      <nav className="fixed bottom-0 left-0 right-0 z-40 flex lg:hidden items-center justify-around bg-card border-t border-border px-1 pb-[env(safe-area-inset-bottom)]">
+      <nav className="fixed bottom-0 left-0 right-0 z-40 flex lg:hidden items-center justify-around bg-card/80 backdrop-blur-xl border-t border-border px-1 pb-[env(safe-area-inset-bottom)]">
         {bottomBarItems.map((item) => {
           const isActive = pathname === item.href;
           return (
@@ -257,12 +257,12 @@ export function DashboardShell({
               key={item.href}
               href={item.href}
               className={cn(
-                "flex flex-col items-center gap-0.5 py-2 px-3 min-w-[56px] min-h-[44px] transition-colors",
+                "flex flex-col items-center gap-0.5 py-2.5 px-3 min-w-[56px] min-h-[44px] transition-colors",
                 isActive ? "text-primary" : "text-muted-foreground"
               )}
             >
               <div className="relative">
-                <item.icon className="w-4 h-4" />
+                <item.icon className="w-[18px] h-[18px]" />
                 {item.badge && (
                   <span className="absolute -top-1 -right-1.5 w-3.5 h-3.5 text-2xs font-bold bg-primary text-primary-foreground rounded-full flex items-center justify-center">
                     {item.badge}

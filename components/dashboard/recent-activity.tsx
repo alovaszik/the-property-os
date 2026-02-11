@@ -32,9 +32,9 @@ const statusIconMap = {
 
 export function RecentActivity({ items }: { items: ActivityItem[] }) {
   return (
-    <div className="flex flex-col gap-3 p-5 rounded-2xl bg-card border border-border">
+    <div className="flex flex-col gap-3 p-5 lg:p-6 rounded-xl bg-card border border-border shadow-card">
       <div className="flex items-center justify-between">
-        <h3 className="text-base font-semibold text-foreground">
+        <h3 className="text-sm font-semibold text-foreground font-serif">
           Recent Activity
         </h3>
         <button className="text-xs font-medium text-primary hover:underline min-h-[44px] flex items-center">
@@ -55,25 +55,19 @@ export function RecentActivity({ items }: { items: ActivityItem[] }) {
             >
               <div
                 className={cn(
-                  "w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5",
-                  item.type === "payment" &&
-                    "bg-green-100 dark:bg-green-900/30",
-                  item.type === "message" &&
-                    "bg-primary/10",
-                  item.type === "ticket" &&
-                    "bg-amber-100 dark:bg-amber-900/30",
-                  item.type === "system" &&
-                    "bg-secondary"
+                  "w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5",
+                  item.type === "payment" && "bg-success/10",
+                  item.type === "message" && "bg-primary/10",
+                  item.type === "ticket" && "bg-warning/10",
+                  item.type === "system" && "bg-muted"
                 )}
               >
                 <Icon
                   className={cn(
                     "w-4 h-4",
-                    item.type === "payment" &&
-                      "text-green-600 dark:text-green-400",
+                    item.type === "payment" && "text-success",
                     item.type === "message" && "text-primary",
-                    item.type === "ticket" &&
-                      "text-amber-600 dark:text-amber-400",
+                    item.type === "ticket" && "text-warning",
                     item.type === "system" && "text-muted-foreground"
                   )}
                 />
@@ -86,7 +80,7 @@ export function RecentActivity({ items }: { items: ActivityItem[] }) {
                   {item.description}
                 </p>
               </div>
-              <span className="text-[10px] text-muted-foreground font-medium shrink-0 mt-1">
+              <span className="text-2xs text-muted-foreground font-medium shrink-0 mt-1">
                 {item.time}
               </span>
             </div>

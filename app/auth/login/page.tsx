@@ -56,24 +56,24 @@ export default function LoginPage() {
 
   return (
     <div className="w-full max-w-sm animate-in fade-in slide-in-from-bottom-4 duration-700">
-      <Card className="p-7 border-border">
-        <div className="mb-7">
-          <h1 className="text-xl font-semibold text-foreground font-display">
+      <Card className="p-7 lg:p-8 border-border shadow-card rounded-xl">
+        <div className="mb-8">
+          <h1 className="text-xl font-bold text-foreground font-serif">
             Welcome back
           </h1>
-          <p className="text-sm text-muted-foreground mt-1">
+          <p className="text-sm text-muted-foreground mt-1.5">
             Sign in to your RentDuo account
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           {error && (
             <div className="p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive text-sm">
               {error}
             </div>
           )}
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-2">
             <Label htmlFor="email" className="text-xs font-medium">
               Email
             </Label>
@@ -85,20 +85,20 @@ export default function LoginPage() {
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="pl-9 h-10"
+                className="pl-9 h-11 rounded-lg"
                 required
               />
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <Label htmlFor="password" className="text-xs font-medium">
                 Password
               </Label>
               <Link
                 href="/auth/forgot-password"
-                className="text-xs text-primary hover:underline"
+                className="text-xs text-primary hover:underline font-medium"
               >
                 Forgot?
               </Link>
@@ -111,13 +111,13 @@ export default function LoginPage() {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="pl-9 h-10"
+                className="pl-9 h-11 rounded-lg"
                 required
               />
             </div>
           </div>
 
-          <Button type="submit" className="w-full h-10 mt-1" disabled={loading}>
+          <Button type="submit" className="w-full h-11 rounded-lg font-semibold mt-1" disabled={loading}>
             {loading ? (
               "Signing in..."
             ) : (
@@ -129,21 +129,21 @@ export default function LoginPage() {
           </Button>
         </form>
 
-        <p className="mt-5 text-center text-sm text-muted-foreground">
+        <p className="mt-6 text-center text-sm text-muted-foreground">
           {"Don't have an account? "}
           <Link
             href="/auth/register"
-            className="text-primary font-medium hover:underline"
+            className="text-primary font-semibold hover:underline"
           >
             Sign up
           </Link>
         </p>
       </Card>
 
-      <div className="mt-5 text-center">
+      <div className="mt-6 text-center">
         <Link
           href="/"
-          className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+          className="text-xs text-muted-foreground hover:text-foreground transition-colors font-medium"
         >
           Back to home
         </Link>

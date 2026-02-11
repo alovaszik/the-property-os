@@ -58,23 +58,23 @@ function FAQItem({
       <button
         type="button"
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 py-3.5 text-left"
+        className="w-full flex items-center justify-between gap-4 py-4 text-left group"
       >
-        <span className="text-sm font-medium text-foreground">{question}</span>
+        <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{question}</span>
         <ChevronRight
           className={cn(
-            "w-3.5 h-3.5 text-muted-foreground shrink-0 transition-transform duration-200",
-            isOpen && "rotate-90"
+            "w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-200",
+            isOpen && "rotate-90 text-primary"
           )}
         />
       </button>
       <div
         className={cn(
           "overflow-hidden transition-all duration-300 ease-in-out",
-          isOpen ? "max-h-[500px] opacity-100 pb-3.5" : "max-h-0 opacity-0"
+          isOpen ? "max-h-[500px] opacity-100 pb-4" : "max-h-0 opacity-0"
         )}
       >
-        <p className="text-xs text-muted-foreground leading-relaxed pr-8">
+        <p className="text-[13px] text-muted-foreground leading-relaxed pr-8">
           {answer}
         </p>
       </div>
@@ -86,21 +86,21 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative px-5 py-20 lg:px-10 lg:py-24">
+    <section id="faq" className="relative px-5 py-20 lg:px-10 lg:py-28">
       <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-10">
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-2">
+        <div className="text-center mb-12">
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-3">
             FAQ
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight text-balance font-serif">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-balance font-serif">
             Frequently asked questions
           </h2>
-          <p className="mt-3 text-muted-foreground text-sm max-w-md mx-auto leading-relaxed">
+          <p className="mt-4 text-muted-foreground text-sm max-w-md mx-auto leading-relaxed">
             Everything you need to know about RentDuo.
           </p>
         </div>
 
-        <div className="bg-card border border-border rounded-lg px-5 lg:px-6">
+        <div className="bg-card border border-border rounded-xl px-6 shadow-card">
           {faqs.map((faq, index) => (
             <FAQItem
               key={faq.question}

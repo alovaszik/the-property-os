@@ -35,17 +35,26 @@ export default function LandlordDashboard() {
   };
 
   return (
-    <div className="px-4 py-6 lg:px-6 lg:py-6 max-w-7xl mx-auto">
-      <div className="flex flex-col gap-0.5 mb-6">
-        <h1 className="text-xl font-semibold text-foreground tracking-tight font-serif">
-          Dashboard
-        </h1>
-        <p className="text-sm text-muted-foreground">
-          Here is what is happening across your properties.
-        </p>
+    <div className="px-4 py-6 lg:px-8 lg:py-8 max-w-7xl mx-auto">
+      <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col gap-1">
+          <h1 className="text-xl font-bold text-foreground font-serif">
+            Dashboard
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            Here is what is happening across your properties.
+          </p>
+        </div>
+        <a
+          href="/landlord/properties"
+          className="hidden sm:flex items-center gap-2 px-4 py-2.5 bg-foreground text-background rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
+        >
+          <Plus className="w-3.5 h-3.5" />
+          Add Property
+        </a>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-8">
         <StatCard
           label="Properties"
           value={String(s.properties)}
@@ -78,33 +87,33 @@ export default function LandlordDashboard() {
         />
       </div>
 
-      <div className="flex items-center gap-2 mb-6">
-        <a
-          href="/landlord/properties"
-          className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-        >
-          <Plus className="w-3.5 h-3.5" />
-          Add Property
-        </a>
-      </div>
+      {/* Mobile add property button */}
+      <a
+        href="/landlord/properties"
+        className="flex sm:hidden items-center justify-center gap-2 w-full px-4 py-3 bg-foreground text-background rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity mb-8"
+      >
+        <Plus className="w-3.5 h-3.5" />
+        Add Property
+      </a>
 
       {props.length > 0 ? (
         <div>
-          <h2 className="text-sm font-semibold text-foreground mb-3 font-serif">
+          <h2 className="text-sm font-semibold text-foreground mb-4 font-serif">
             Your Properties
           </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
             {props
               .slice(0, 6)
               .map(
                 (property: Record<string, string | number>) => (
                   <PropertyCard
                     key={property.id as string}
+                    id={property.id as string}
                     name={property.name as string}
                     address={property.address as string}
                     units={property.total_units as number}
                     occupancy={0}
-                    monthlyRevenue="--"
+                    monthlyRent={property.monthly_rent as number | null}
                     status={
                       property.status as
                         | "active"

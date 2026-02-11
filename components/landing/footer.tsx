@@ -30,18 +30,18 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-card">
       <div className="max-w-5xl mx-auto px-5 lg:px-10">
-        <div className="py-10 lg:py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="py-12 lg:py-14 grid grid-cols-2 md:grid-cols-4 gap-8">
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-3 font-serif">
+              <h4 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-4 font-serif">
                 {category}
               </h4>
-              <ul className="flex flex-col gap-2">
+              <ul className="flex flex-col gap-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-xs text-muted-foreground hover:text-foreground transition-colors no-underline"
+                      className="text-[13px] text-muted-foreground hover:text-foreground transition-colors no-underline"
                     >
                       {link.label}
                     </a>
@@ -52,20 +52,20 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="py-4 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
+        <div className="py-5 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
             <img
               src="/logo.jpeg"
               alt="RentDuo logo"
-              width={18}
-              height={18}
-              className="rounded-sm"
+              width={20}
+              height={20}
+              className="rounded-md"
             />
-            <span className="text-xs font-semibold text-foreground font-serif">
+            <span className="text-sm font-semibold text-foreground font-serif">
               RentDuo
             </span>
           </div>
-          <p className="text-2xs text-muted-foreground">
+          <p className="text-xs text-muted-foreground">
             {"2026 RentDuo. All rights reserved. Made in the EU."}
           </p>
         </div>

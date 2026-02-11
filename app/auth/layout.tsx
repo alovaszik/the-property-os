@@ -9,7 +9,7 @@ export default function AuthLayout({
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <header className="h-14 px-5 lg:px-12 flex items-center">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2.5">
           <img
             src="/logo.jpeg"
             alt="RentDuo logo"
@@ -17,7 +17,7 @@ export default function AuthLayout({
             height={28}
             className="rounded-lg"
           />
-          <span className="text-sm font-semibold text-foreground tracking-tight font-display">
+          <span className="text-sm font-bold text-foreground font-serif">
             RentDuo
           </span>
         </Link>

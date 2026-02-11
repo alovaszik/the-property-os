@@ -72,24 +72,24 @@ export default function RegisterPage() {
 
   return (
     <div className="w-full max-w-sm animate-in fade-in slide-in-from-bottom-4 duration-700">
-      <Card className="p-7 border-border">
-        <div className="mb-7">
-          <h1 className="text-xl font-semibold text-foreground font-display">
+      <Card className="p-7 lg:p-8 border-border shadow-card rounded-xl">
+        <div className="mb-8">
+          <h1 className="text-xl font-bold text-foreground font-serif">
             Create your account
           </h1>
-          <p className="text-sm text-muted-foreground mt-1">
+          <p className="text-sm text-muted-foreground mt-1.5">
             Join RentDuo and simplify property management
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           {error && (
             <div className="p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive text-sm">
               {error}
             </div>
           )}
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-2">
             <Label htmlFor="name" className="text-xs font-medium">
               Full Name
             </Label>
@@ -103,13 +103,13 @@ export default function RegisterPage() {
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
-                className="pl-9 h-10"
+                className="pl-9 h-11 rounded-lg"
                 required
               />
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-2">
             <Label htmlFor="email" className="text-xs font-medium">
               Email
             </Label>
@@ -123,13 +123,13 @@ export default function RegisterPage() {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="pl-9 h-10"
+                className="pl-9 h-11 rounded-lg"
                 required
               />
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-2">
             <Label htmlFor="password" className="text-xs font-medium">
               Password
             </Label>
@@ -143,13 +143,13 @@ export default function RegisterPage() {
                 onChange={(e) =>
                   setFormData({ ...formData, password: e.target.value })
                 }
-                className="pl-9 h-10"
+                className="pl-9 h-11 rounded-lg"
                 required
               />
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-2">
             <Label htmlFor="confirmPassword" className="text-xs font-medium">
               Confirm Password
             </Label>
@@ -166,25 +166,25 @@ export default function RegisterPage() {
                     confirmPassword: e.target.value,
                   })
                 }
-                className="pl-9 h-10"
+                className="pl-9 h-11 rounded-lg"
                 required
               />
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-2">
             <Label className="text-xs font-medium">I am a...</Label>
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
                 onClick={() => setFormData({ ...formData, role: "tenant" })}
-                className={`p-3.5 rounded-lg border transition-colors ${
+                className={`p-4 rounded-xl border transition-all ${
                   formData.role === "tenant"
-                    ? "border-primary bg-primary/8 text-foreground"
+                    ? "border-primary bg-primary/8 text-foreground shadow-card"
                     : "border-border text-muted-foreground hover:border-primary/30"
                 }`}
               >
-                <p className="text-sm font-semibold">Tenant</p>
+                <p className="text-sm font-semibold font-serif">Tenant</p>
                 <p className="text-[11px] text-muted-foreground mt-0.5">
                   {"I'm renting"}
                 </p>
@@ -194,13 +194,13 @@ export default function RegisterPage() {
                 onClick={() =>
                   setFormData({ ...formData, role: "landlord" })
                 }
-                className={`p-3.5 rounded-lg border transition-colors ${
+                className={`p-4 rounded-xl border transition-all ${
                   formData.role === "landlord"
-                    ? "border-primary bg-primary/8 text-foreground"
+                    ? "border-primary bg-primary/8 text-foreground shadow-card"
                     : "border-border text-muted-foreground hover:border-primary/30"
                 }`}
               >
-                <p className="text-sm font-semibold">Landlord</p>
+                <p className="text-sm font-semibold font-serif">Landlord</p>
                 <p className="text-[11px] text-muted-foreground mt-0.5">
                   I own properties
                 </p>
@@ -208,7 +208,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          <Button type="submit" className="w-full h-10 mt-1" disabled={loading}>
+          <Button type="submit" className="w-full h-11 rounded-lg font-semibold mt-1" disabled={loading}>
             {loading ? (
               "Creating account..."
             ) : (
@@ -220,21 +220,21 @@ export default function RegisterPage() {
           </Button>
         </form>
 
-        <p className="mt-5 text-center text-sm text-muted-foreground">
+        <p className="mt-6 text-center text-sm text-muted-foreground">
           Already have an account?{" "}
           <Link
             href="/auth/login"
-            className="text-primary font-medium hover:underline"
+            className="text-primary font-semibold hover:underline"
           >
             Sign in
           </Link>
         </p>
       </Card>
 
-      <div className="mt-5 text-center">
+      <div className="mt-6 text-center">
         <Link
           href="/"
-          className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+          className="text-xs text-muted-foreground hover:text-foreground transition-colors font-medium"
         >
           Back to home
         </Link>

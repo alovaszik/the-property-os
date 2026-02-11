@@ -44,15 +44,17 @@ export function PropertyCard({
   return (
     <Link
       href={`/landlord/properties/${id}`}
-      className="flex flex-col gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors no-underline group"
+      className="flex flex-col gap-4 p-5 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors no-underline group"
     >
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
-            <Building2 className="w-5 h-5 text-primary" />
+          <div className="w-10 h-10 rounded-lg bg-primary/8 flex items-center justify-center">
+            <Building2 className="w-4 h-4 text-primary" />
           </div>
           <div>
-            <h3 className="text-base font-semibold text-foreground">{name}</h3>
+            <h3 className="text-sm font-semibold text-foreground font-display">
+              {name}
+            </h3>
             <div className="flex items-center gap-1 text-xs text-muted-foreground mt-0.5">
               <MapPin className="w-3 h-3" />
               {city ? `${address}, ${city}` : address}
@@ -61,10 +63,13 @@ export function PropertyCard({
         </div>
         <span
           className={cn(
-            "text-[10px] font-medium px-2.5 py-1 rounded-full shrink-0 capitalize",
-            status === "active" && "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
-            status === "maintenance" && "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
-            status === "vacant" && "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
+            "text-[10px] font-medium px-2 py-0.5 rounded-md shrink-0 capitalize",
+            status === "active" &&
+              "bg-[hsl(var(--success))]/10 text-[hsl(var(--success))]",
+            status === "maintenance" &&
+              "bg-[hsl(var(--warning))]/10 text-[hsl(var(--warning))]",
+            status === "vacant" &&
+              "bg-destructive/10 text-destructive",
             status === "inactive" && "bg-muted text-muted-foreground"
           )}
         >
@@ -72,30 +77,48 @@ export function PropertyCard({
         </span>
       </div>
 
-      <div className="grid grid-cols-3 gap-3">
-        <div className="flex flex-col gap-1 p-3 rounded-xl bg-secondary/50">
-          <span className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Units</span>
+      <div className="grid grid-cols-3 gap-2">
+        <div className="flex flex-col gap-1 p-2.5 rounded-lg bg-muted/50">
+          <span className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">
+            Units
+          </span>
           <div className="flex items-center gap-1.5">
-            <Users className="w-3.5 h-3.5 text-primary" />
-            <span className="text-sm font-semibold text-foreground">{units}</span>
+            <Users className="w-3 h-3 text-primary" />
+            <span className="text-sm font-semibold text-foreground">
+              {units}
+            </span>
           </div>
         </div>
-        <div className="flex flex-col gap-1 p-3 rounded-xl bg-secondary/50">
+        <div className="flex flex-col gap-1 p-2.5 rounded-lg bg-muted/50">
           <span className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">
             {rooms != null ? "Rooms" : sizeSqm != null ? "Size" : "Type"}
           </span>
           <div className="flex items-center gap-1.5">
             {rooms != null ? (
-              <><BedDouble className="w-3.5 h-3.5 text-primary" /><span className="text-sm font-semibold text-foreground">{rooms}</span></>
+              <>
+                <BedDouble className="w-3 h-3 text-primary" />
+                <span className="text-sm font-semibold text-foreground">
+                  {rooms}
+                </span>
+              </>
             ) : sizeSqm != null ? (
-              <><Maximize2 className="w-3.5 h-3.5 text-primary" /><span className="text-sm font-semibold text-foreground">{sizeSqm}m2</span></>
+              <>
+                <Maximize2 className="w-3 h-3 text-primary" />
+                <span className="text-sm font-semibold text-foreground">
+                  {sizeSqm}m2
+                </span>
+              </>
             ) : (
-              <span className="text-sm font-semibold text-foreground capitalize">{propertyType || "N/A"}</span>
+              <span className="text-sm font-semibold text-foreground capitalize">
+                {propertyType || "N/A"}
+              </span>
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-1 p-3 rounded-xl bg-secondary/50">
-          <span className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Rent</span>
+        <div className="flex flex-col gap-1 p-2.5 rounded-lg bg-muted/50">
+          <span className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">
+            Rent
+          </span>
           <div className="flex items-center gap-1">
             <DollarSign className="w-3 h-3 text-primary" />
             <span className="text-sm font-semibold text-foreground">
@@ -105,8 +128,8 @@ export function PropertyCard({
         </div>
       </div>
 
-      <div className="flex items-center justify-end pt-1">
-        <span className="text-xs font-medium text-primary flex items-center gap-1 group-hover:gap-2 transition-all min-h-[44px]">
+      <div className="flex items-center justify-end">
+        <span className="text-xs font-medium text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
           View Details
           <ChevronRight className="w-3.5 h-3.5" />
         </span>

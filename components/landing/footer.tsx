@@ -1,5 +1,3 @@
-
-
 const footerLinks = {
   Product: [
     { label: "Features", href: "#why" },
@@ -30,16 +28,15 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-border">
+    <footer className="border-t border-border bg-card">
       <div className="max-w-7xl mx-auto px-5 lg:px-12">
-        {/* Links grid */}
-        <div className="py-12 lg:py-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="py-12 lg:py-14 grid grid-cols-2 md:grid-cols-4 gap-8">
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="text-sm font-semibold text-foreground mb-4">
+              <h4 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-4 font-display">
                 {category}
               </h4>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
                     <a
@@ -55,21 +52,20 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <div className="py-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5">
+        <div className="py-5 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
             <img
               src="/logo.jpeg"
               alt="RentDuo logo"
-              width={24}
-              height={24}
-              className="rounded-full"
+              width={20}
+              height={20}
+              className="rounded-md"
             />
-            <span className="text-sm font-semibold text-foreground">
+            <span className="text-sm font-semibold text-foreground font-display">
               RentDuo
             </span>
           </div>
-          <p className="text-xs text-muted-foreground text-center">
+          <p className="text-xs text-muted-foreground">
             {"2026 RentDuo. All rights reserved. Made in the EU."}
           </p>
         </div>

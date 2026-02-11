@@ -39,7 +39,7 @@ export default function PropertiesPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">Properties</h1>
+          <h1 className="text-xl font-semibold font-display text-foreground tracking-tight">Properties</h1>
           <p className="text-sm text-muted-foreground mt-1">
             {props.length} {props.length === 1 ? "property" : "properties"} in your portfolio
           </p>
@@ -63,7 +63,7 @@ export default function PropertiesPage() {
             { label: "Vacant", value: stats.vacant, color: "text-red-600 dark:text-red-400" },
             { label: "Maintenance", value: stats.maintenance, color: "text-amber-600 dark:text-amber-400" },
           ].map((stat) => (
-            <div key={stat.label} className="flex flex-col gap-1 p-4 rounded-2xl bg-card border border-border">
+            <div key={stat.label} className="flex flex-col gap-1 p-4 rounded-xl bg-card border border-border">
               <span className="text-xs text-muted-foreground font-medium">{stat.label}</span>
               <span className={`text-xl font-bold ${stat.color}`}>{stat.value}</span>
             </div>

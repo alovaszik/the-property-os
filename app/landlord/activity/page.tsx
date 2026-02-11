@@ -35,7 +35,7 @@ export default function LandlordActivityPage() {
   return (
     <div className="px-4 py-6 lg:px-8 lg:py-8 max-w-3xl mx-auto">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-foreground tracking-tight">Activity Feed</h1>
+        <h1 className="text-xl font-semibold font-display text-foreground tracking-tight">Activity Feed</h1>
         <p className="text-sm text-muted-foreground mt-1">All messages, payments, and tickets in one place</p>
       </div>
 
@@ -45,7 +45,7 @@ export default function LandlordActivityPage() {
             const t = typeIcons[item.type] || typeIcons.system;
             const Icon = t.icon;
             return (
-              <div key={item.id} className="flex items-start gap-3 p-4 rounded-2xl bg-card border border-border">
+              <div key={item.id} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border">
                 <div className={cn("w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5", t.bg)}>
                   <Icon className={cn("w-4 h-4", t.fg)} />
                 </div>

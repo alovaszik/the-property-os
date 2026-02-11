@@ -288,7 +288,7 @@ export default function LandlordWalletPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-foreground tracking-tight">Wallet</h1>
+            <h1 className="text-xl font-semibold font-display text-foreground tracking-tight">Wallet</h1>
             <p className="text-sm text-muted-foreground mt-1">Manage your funds, payouts, and security deposits</p>
           </div>
           <Button variant="outline" size="sm" onClick={fetchAll} className="gap-2 bg-transparent">

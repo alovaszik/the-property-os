@@ -18,7 +18,7 @@ const faqs = [
   {
     question: "How does the unified chat work?",
     answer:
-      "Every interaction between landlord and tenant appears in a single timeline — messages, payment receipts, maintenance tickets, and notifications. Think of it like a modern banking app where every transaction and conversation is in one place.",
+      "Every interaction between landlord and tenant appears in a single timeline. Think of it like a modern banking app where every transaction and conversation is in one place.",
   },
   {
     question: "Can I change my name or country after registering?",
@@ -28,17 +28,17 @@ const faqs = [
   {
     question: "What are RentDuo Points?",
     answer:
-      "RentDuo Points are our loyalty rewards system. Both landlords and tenants earn points for positive actions — like on-time payments, completing profile setup, and maintaining good standing. Points can unlock premium features and badges on your profile.",
+      "RentDuo Points are our loyalty rewards system. Both landlords and tenants earn points for positive actions like on-time payments, completing profile setup, and maintaining good standing. Points can unlock premium features and badges.",
   },
   {
     question: "Is my data secure and GDPR compliant?",
     answer:
-      "Absolutely. RentDuo is fully GDPR compliant and uses end-to-end encryption for sensitive data. All data is stored in EU-based servers, and you can request data export or deletion at any time through your settings.",
+      "Absolutely. RentDuo is fully GDPR compliant and uses end-to-end encryption for sensitive data. All data is stored in EU-based servers, and you can request data export or deletion at any time.",
   },
   {
     question: "How do automatic payments work?",
     answer:
-      "Tenants can set up recurring payments that automatically process on their rent due date. Landlords receive instant notifications when payments are made, and everything is logged in the activity feed for complete transparency.",
+      "Tenants can set up recurring payments that automatically process on their rent due date. Landlords receive instant notifications when payments are made, and everything is logged in the activity feed.",
   },
 ];
 
@@ -58,14 +58,12 @@ function FAQItem({
       <button
         type="button"
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 py-5 text-left min-h-[52px]"
+        className="w-full flex items-center justify-between gap-4 py-4 text-left"
       >
-        <span className="text-base font-medium text-foreground">
-          {question}
-        </span>
+        <span className="text-sm font-medium text-foreground">{question}</span>
         <ChevronRight
           className={cn(
-            "w-5 h-5 text-muted-foreground shrink-0 transition-transform duration-200",
+            "w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-200",
             isOpen && "rotate-90"
           )}
         />
@@ -73,7 +71,7 @@ function FAQItem({
       <div
         className={cn(
           "overflow-hidden transition-all duration-300 ease-in-out",
-          isOpen ? "max-h-[500px] opacity-100 pb-5" : "max-h-0 opacity-0"
+          isOpen ? "max-h-[500px] opacity-100 pb-4" : "max-h-0 opacity-0"
         )}
       >
         <p className="text-sm text-muted-foreground leading-relaxed pr-8">
@@ -94,15 +92,15 @@ export function FAQ() {
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-3">
             FAQ
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight text-balance">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight text-balance font-display">
             Frequently asked questions
           </h2>
-          <p className="mt-4 text-muted-foreground text-lg max-w-lg mx-auto leading-relaxed">
+          <p className="mt-4 text-muted-foreground text-base max-w-lg mx-auto leading-relaxed">
             Everything you need to know about RentDuo.
           </p>
         </div>
 
-        <div className="bg-card border border-border rounded-2xl px-6 lg:px-8">
+        <div className="bg-card border border-border rounded-xl px-6 lg:px-8">
           {faqs.map((faq, index) => (
             <FAQItem
               key={faq.question}

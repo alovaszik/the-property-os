@@ -120,31 +120,31 @@ function OnboardingContent() {
   };
 
   return (
-    <div className="w-full max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-700">
+    <div className="w-full max-w-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
       {/* Progress steps */}
-      <div className="flex items-center justify-center gap-2 mb-8">
+      <div className="flex items-center justify-center gap-2 mb-6">
         {[1, 2, 3].map((s) => (
           <div
             key={s}
-            className={`h-2 rounded-full transition-all duration-300 ${
+            className={`h-1.5 rounded-full transition-all duration-300 ${
               s === step
-                ? "w-12 bg-primary"
+                ? "w-10 bg-primary"
                 : s < step
-                  ? "w-8 bg-primary/60"
-                  : "w-8 bg-border"
+                  ? "w-6 bg-primary/50"
+                  : "w-6 bg-border"
             }`}
           />
         ))}
       </div>
 
-      <Card className="p-8 shadow-xl border-border/50">
+      <Card className="p-7 border-border">
         {step === 1 && (
           <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
             <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Globe className="w-8 h-8 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center mx-auto mb-4">
+                <Globe className="w-6 h-6 text-primary" />
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-2">
+              <h2 className="text-lg font-semibold text-foreground mb-1.5 font-display">
                 Select your country
               </h2>
               <p className="text-sm text-muted-foreground">
@@ -203,10 +203,10 @@ function OnboardingContent() {
         {step === 2 && (
           <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
             <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Languages className="w-8 h-8 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center mx-auto mb-4">
+                <Languages className="w-6 h-6 text-primary" />
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-2">
+              <h2 className="text-lg font-semibold text-foreground mb-1.5 font-display">
                 Choose your language
               </h2>
               <p className="text-sm text-muted-foreground">
@@ -254,11 +254,11 @@ function OnboardingContent() {
         {step === 3 && (
           <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
             <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Check className="w-8 h-8 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center mx-auto mb-4">
+                <Check className="w-6 h-6 text-primary" />
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-2">
-                You're all set!
+              <h2 className="text-lg font-semibold text-foreground mb-1.5 font-display">
+                {"You're all set!"}
               </h2>
               <p className="text-sm text-muted-foreground">
                 Your account is configured and ready to use

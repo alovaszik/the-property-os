@@ -35,7 +35,7 @@ export default function LeasesPage() {
     <div className="px-4 py-6 lg:px-8 lg:py-8 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">Leases</h1>
+          <h1 className="text-xl font-semibold font-display text-foreground tracking-tight">Leases</h1>
           <p className="text-sm text-muted-foreground mt-1">Manage lease agreements</p>
         </div>
         <button type="button" className="flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-medium min-h-[44px] hover:opacity-90 transition-opacity">
@@ -62,7 +62,7 @@ export default function LeasesPage() {
       ) : (
         <div className="flex flex-col gap-3">
           {filtered.map((lease: Record<string, string>) => (
-            <div key={lease.id} className="flex items-center gap-4 p-4 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors cursor-pointer">
+            <div key={lease.id} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors cursor-pointer">
               <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                 <FileText className="w-5 h-5 text-primary" />
               </div>

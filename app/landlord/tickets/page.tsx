@@ -36,7 +36,7 @@ export default function TicketsPage() {
     <div className="px-4 py-6 lg:px-8 lg:py-8 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">Maintenance Tickets</h1>
+          <h1 className="text-xl font-semibold font-display text-foreground tracking-tight">Maintenance Tickets</h1>
           <p className="text-sm text-muted-foreground mt-1">{openCount} open {openCount === 1 ? "ticket" : "tickets"}</p>
         </div>
       </div>
@@ -53,7 +53,7 @@ export default function TicketsPage() {
       ) : (
         <div className="flex flex-col gap-2">
           {filtered.map((ticket: Record<string, string>) => (
-            <div key={ticket.id} className="flex items-center gap-4 p-4 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors cursor-pointer">
+            <div key={ticket.id} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors cursor-pointer">
               <div className={cn(
                 "w-10 h-10 rounded-xl flex items-center justify-center shrink-0",
                 ticket.status === "open" && "bg-amber-100 dark:bg-amber-900/30",

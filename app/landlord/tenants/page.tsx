@@ -142,7 +142,7 @@ export default function TenantsPage() {
     <div className="px-4 py-6 lg:px-8 lg:py-8 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">Tenants</h1>
+          <h1 className="text-xl font-semibold font-display text-foreground tracking-tight">Tenants</h1>
           <p className="text-sm text-muted-foreground mt-1">{tenants.length} {tenants.length === 1 ? "tenant" : "tenants"} across all properties</p>
         </div>
         <button
@@ -179,7 +179,7 @@ export default function TenantsPage() {
       {/* Tenant list */}
       <div className="flex flex-col gap-3">
         {filtered.map((tenant) => (
-          <div key={tenant.id} className="flex items-center gap-4 p-4 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors">
+          <div key={tenant.id} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors">
             <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center text-sm font-semibold text-primary shrink-0">
               {tenant.name.split(" ").map((n) => n[0]).join("")}
             </div>
@@ -231,7 +231,7 @@ export default function TenantsPage() {
           />
 
           {/* Modal */}
-          <div className="relative w-full max-w-lg bg-card border border-border rounded-2xl shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-300 max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-lg bg-card border border-border rounded-xl shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-300 max-h-[90vh] overflow-y-auto">
             {/* Header */}
             <div className="flex items-center justify-between p-6 pb-0">
               <div className="flex items-center gap-3">

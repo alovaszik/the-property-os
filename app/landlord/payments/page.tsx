@@ -34,7 +34,7 @@ export default function PaymentsPage() {
     <div className="px-4 py-6 lg:px-8 lg:py-8 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">Payments</h1>
+          <h1 className="text-xl font-semibold font-display text-foreground tracking-tight">Payments</h1>
           <p className="text-sm text-muted-foreground mt-1">Track rent collection and payments</p>
         </div>
       </div>
@@ -62,7 +62,7 @@ export default function PaymentsPage() {
             const tenantName = payment.tenancy?.tenant?.full_name || "Unknown";
             const unit = payment.tenancy?.unit || "";
             return (
-              <div key={payment.id} className="flex items-center gap-4 p-4 rounded-2xl bg-card border border-border">
+              <div key={payment.id} className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border">
                 <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center shrink-0",
                   payment.status === "completed" && "bg-green-100 dark:bg-green-900/30",
                   payment.status === "pending" && "bg-amber-100 dark:bg-amber-900/30",

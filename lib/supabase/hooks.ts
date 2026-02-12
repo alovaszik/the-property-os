@@ -3,29 +3,25 @@
 import useSWR from "swr";
 import { createClient } from "@/lib/supabase/client";
 
-let _supabase: ReturnType<typeof createClient> | null = null;
-function getSupabase() {
-  if (!_supabase) _supabase = createClient();
-  return _supabase;
-}
+const supabase = createClient();
 
 // Generic fetcher for Supabase queries
 async function fetchProfile() {
-  const { data: { user } } = await getSupabase().auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) return null;
-  const { data } = await getSupabase().from("profiles").select("*").eq("id", user.id).single();
+  const { data } = await supabase.from("profiles").select("*").eq("id", user.id).single();
   return data;
 }
 
 // ---- PROPERTIES ----
 async function fetchProperties() {
-  const { data } = await getSupabase().from("properties").select("*").order("created_at", { ascending: false });
+  const { data } = await supabase.from("properties").select("*").order("created_at", { ascending: false });
   return data ?? [];
 }
 
 // ---- SINGLE PROPERTY ----
 async function fetchProperty(id: string) {
-  const { data } = await getSupabase().from("properties").select("*").eq("id", id).single();
+  const { data } = await supabase.from("properties").select("*").eq("id", id).single();
   return data;
 }
 
@@ -40,7 +36,7 @@ async function fetchTenancies() {
 
 // ---- TENANCY (tenant's own) ----
 async function fetchMyTenancy() {
-  const { data: { user } } = await getSupabase().auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) return null;
   const { data } = await supabase
     .from("tenancies")
@@ -62,7 +58,7 @@ async function fetchPaymentsLandlord() {
 
 // ---- PAYMENTS (tenant) ----
 async function fetchPaymentsTenant() {
-  const { data: { user } } = await getSupabase().auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) return [];
   const { data } = await supabase
     .from("payments")
@@ -83,7 +79,7 @@ async function fetchMaintenanceLandlord() {
 
 // ---- MAINTENANCE TICKETS (tenant) ----
 async function fetchMaintenanceTenant() {
-  const { data: { user } } = await getSupabase().auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) return [];
   const { data } = await supabase
     .from("maintenance_tickets")
@@ -95,7 +91,7 @@ async function fetchMaintenanceTenant() {
 
 // ---- DOCUMENTS (tenant) ----
 async function fetchDocumentsTenant() {
-  const { data: { user } } = await getSupabase().auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) return [];
   const { data } = await supabase
     .from("documents")
@@ -107,7 +103,7 @@ async function fetchDocumentsTenant() {
 
 // ---- STATEMENTS (tenant) ----
 async function fetchStatementsTenant() {
-  const { data: { user } } = await getSupabase().auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) return [];
   const { data } = await supabase
     .from("statements")
@@ -119,7 +115,7 @@ async function fetchStatementsTenant() {
 
 // ---- ACTIVITY LOG ----
 async function fetchActivityLog() {
-  const { data: { user } } = await getSupabase().auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) return [];
   const { data } = await supabase
     .from("activity_log")
@@ -132,7 +128,7 @@ async function fetchActivityLog() {
 
 // ---- SUPPORT TICKETS ----
 async function fetchSupportTickets() {
-  const { data: { user } } = await getSupabase().auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) return [];
   const { data } = await supabase
     .from("tickets")
@@ -143,7 +139,7 @@ async function fetchSupportTickets() {
 }
 
 async function fetchSupportTicketDetail(id: string) {
-  const { data: ticket } = await getSupabase().from("tickets").select("*").eq("id", id).single();
+  const { data: ticket } = await supabase.from("tickets").select("*").eq("id", id).single();
   if (!ticket) return null;
   const { data: messages } = await supabase
     .from("ticket_messages")
@@ -155,14 +151,14 @@ async function fetchSupportTicketDetail(id: string) {
 
 // ---- DASHBOARD STATS ----
 async function fetchLandlordStats() {
-  const { data: { user } } = await getSupabase().auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { properties: 0, tenants: 0, revenue: 0, pendingPayments: 0, occupancy: 0, maintenanceOpen: 0 };
 
   const [propsRes, tenanciesRes, paymentsRes, maintRes] = await Promise.all([
-    getSupabase().from("properties").select("id, total_units, status", { count: "exact" }).eq("landlord_id", user.id),
-    getSupabase().from("tenancies").select("id, monthly_rent", { count: "exact" }).eq("landlord_id", user.id).eq("status", "active"),
-    getSupabase().from("payments").select("amount, status").eq("landlord_id", user.id),
-    getSupabase().from("maintenance_tickets").select("id", { count: "exact" }).eq("landlord_id", user.id).in("status", ["open", "in-progress"]),
+    supabase.from("properties").select("id, total_units, status", { count: "exact" }).eq("landlord_id", user.id),
+    supabase.from("tenancies").select("id, monthly_rent", { count: "exact" }).eq("landlord_id", user.id).eq("status", "active"),
+    supabase.from("payments").select("amount, status").eq("landlord_id", user.id),
+    supabase.from("maintenance_tickets").select("id", { count: "exact" }).eq("landlord_id", user.id).in("status", ["open", "in-progress"]),
   ]);
 
   const properties = propsRes.data ?? [];
@@ -185,12 +181,12 @@ async function fetchLandlordStats() {
 }
 
 async function fetchTenantStats() {
-  const { data: { user } } = await getSupabase().auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { nextPayment: null, totalPaid: 0, onTimeRate: 100, openTickets: 0 };
 
   const [paymentsRes, maintRes] = await Promise.all([
-    getSupabase().from("payments").select("*").eq("tenant_id", user.id).order("due_date", { ascending: false }),
-    getSupabase().from("maintenance_tickets").select("id", { count: "exact" }).eq("tenant_id", user.id).in("status", ["open", "in-progress"]),
+    supabase.from("payments").select("*").eq("tenant_id", user.id).order("due_date", { ascending: false }),
+    supabase.from("maintenance_tickets").select("id", { count: "exact" }).eq("tenant_id", user.id).in("status", ["open", "in-progress"]),
   ]);
 
   const payments = paymentsRes.data ?? [];

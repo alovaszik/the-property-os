@@ -1,34 +1,39 @@
-"use client";
+"use client"
 
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import { Moon, Sun } from "@/components/icons";
+import { Moon, Sun } from "@/components/icons"
+import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 
 export function ThemeToggle() {
-  const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return (
+      <button
+        className="inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground hover:text-foreground hover:bg-accent transition-colors min-h-[36px] min-w-[36px]"
+        aria-label="Toggle theme"
+      >
+        <Sun className="h-4 w-4" />
+      </button>
+    )
+  }
 
   return (
     <button
-      type="button"
-      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className="flex items-center justify-center w-10 h-10 rounded-full bg-secondary hover:bg-accent transition-colors"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground hover:text-foreground hover:bg-accent transition-colors min-h-[36px] min-w-[36px]"
       aria-label="Toggle theme"
-      suppressHydrationWarning
     >
-      {mounted ? (
-        resolvedTheme === "dark" ? (
-          <Sun className="w-5 h-5 text-foreground" />
-        ) : (
-          <Moon className="w-5 h-5 text-foreground" />
-        )
+      {theme === "dark" ? (
+        <Sun className="h-4 w-4" />
       ) : (
-        <span className="w-5 h-5" />
+        <Moon className="h-4 w-4" />
       )}
     </button>
-  );
+  )
 }
